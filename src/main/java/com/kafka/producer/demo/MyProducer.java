@@ -19,7 +19,7 @@ public class MyProducer {
         ProducerRecord record = new ProducerRecord("test", "name", "water");
         try {
             Future result = producer.send(record);
-            //need to call get method to send msg
+            //想看到发送消息的效果，可以自动调用get方法，因为send方法不回让消息立刻发送出去的，而是累计到一定大小或者一定时间间隔后才进行发送，目的是提高吞吐量
             System.out.println(result.get());
         } catch (Exception e) {
             e.printStackTrace();

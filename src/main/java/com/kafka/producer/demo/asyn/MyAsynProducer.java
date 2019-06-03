@@ -6,7 +6,6 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
 
 import java.util.Properties;
-import java.util.concurrent.Future;
 
 public class MyAsynProducer {
     public static void main(String[] args) {
@@ -17,7 +16,7 @@ public class MyAsynProducer {
         KafkaProducer producer = new KafkaProducer(kafkaProperties);
         ProducerRecord record = new ProducerRecord("test", "name2", "water asyn");
         try {
-            //need to call get method to send msg
+            //想看到发送消息的效果，可以自动调用get方法，因为send方法不回让消息立刻发送出去的，而是累计到一定大小或者一定时间间隔后才进行发送，目的是提高吞吐量
             producer.send(record, new ProducerCallback()).get();
         } catch (Exception e) {
             e.printStackTrace();
