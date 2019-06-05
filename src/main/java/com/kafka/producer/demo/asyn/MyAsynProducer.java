@@ -10,7 +10,7 @@ import java.util.Properties;
 public class MyAsynProducer {
     public static void main(String[] args) {
         Properties kafkaProperties = new Properties();
-        kafkaProperties.put("bootstrap.servers", "192.168.8.137:9092");
+        kafkaProperties.put("bootstrap.servers", "192.168.8.144:9092");
         kafkaProperties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         kafkaProperties.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         KafkaProducer producer = new KafkaProducer(kafkaProperties);
